@@ -45,7 +45,8 @@ __m128i* remove_trash_and_copy_in_buffer (int* str_amount, FILE* file)
 
     int size_buffer = size_file (file);
 
-    __m128i* arr_word = (__m128i*) calloc (size_buffer, 16 * sizeof (char));
+    //__m128i* arr_word = (__m128i*) calloc (size_buffer, 16 * sizeof (char));
+    __m128i* arr_word = (__m128i*) aligned_alloc (16, size_buffer * 16 * sizeof (char));
     if (arr_word == NULL)
     {
         printf ("ERROR in function : %s \nhaven't memory for buffer open\n", __func__);

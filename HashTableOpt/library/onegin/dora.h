@@ -6,6 +6,7 @@
 #include <string.h> 
 #include <immintrin.h>
 #include <nmmintrin.h>
+#include <cstdlib>
 
 struct Onegin
 {

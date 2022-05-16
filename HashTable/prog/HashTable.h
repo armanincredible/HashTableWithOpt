@@ -15,7 +15,7 @@ enum ErrorsHash
 
 };
 
-const int HASH_TABLE_SIZE = 16;
+const int HASH_TABLE_SIZE = 256;
 const int NUM_FUNCTIONS = 6;
 
 struct HashTable
@@ -25,6 +25,8 @@ struct HashTable
     unsigned int (*HashFunc)(char* str_ptr) = 0;
     const char* error;
 };
+
+int ListFind (List* found_list, char* str);
 
 int HashCtor (HashTable* hash_table, const int size);
 int HashDtor (HashTable* hash_table);

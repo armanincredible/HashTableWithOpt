@@ -181,6 +181,28 @@ int HashFind (HashTable* hash_table, char* str, List** found_list)
         value = (*found_list)->data [cur_ptr];
     }
 
+    return 1;//ListFind (*found_list, str);
+}
+
+int ListFind (List* found_list, char* str)
+{
+    CHECK_ERROR_ (found_list, "ZERO PTR", -1);
+    CHECK_ERROR_ (str, "ZERO PTR", -1);
+
+    int cur_ptr = (found_list)->head;
+    char* value = (found_list)->data[cur_ptr];
+
+    while ((found_list)->data[cur_ptr] != NULL)
+    {
+        if (strcmp (str, value) == 0)
+        {
+            return 0;
+        }
+
+        cur_ptr = (found_list)->next[cur_ptr];
+        value = (found_list)->data [cur_ptr];
+    } 
+
     return 1;
 }
 
